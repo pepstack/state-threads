@@ -83,8 +83,11 @@
 
 /* New in Solaris 7 */
 #if !defined(_getshort) && defined(ns_get16)
-#define _getshort(cp) ns_get16(cp)
+# define _getshort(cp) ns_get16(cp)
+#else
+  unsigned short _getshort( u_char *message_ptr );
 #endif
+
 
 typedef union {
     HEADER hdr;
