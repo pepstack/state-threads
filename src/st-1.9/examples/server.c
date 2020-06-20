@@ -836,8 +836,7 @@ static void start_threads(void)
       if (st_thread_create(handle_connections, (void *)i, 0, 0) != NULL)
         WAIT_THREADS(i)++;
       else
-        err_sys_report(errfd, "ERROR: process %d (pid %d): can't create"
-                       " thread", my_index, my_pid);
+        err_sys_report(errfd, "ERROR: process %d (pid %d): can't create thread", my_index, my_pid);
     }
     if (WAIT_THREADS(i) == 0)
       exit(1);
@@ -874,8 +873,7 @@ static void *handle_connections(void *arg)
       if (st_thread_create(handle_connections, (void *)i, 0, 0) != NULL)
         WAIT_THREADS(i)++;
       else
-        err_sys_report(errfd, "ERROR: process %d (pid %d): can't create"
-                       " thread", my_index, my_pid);
+        err_sys_report(errfd, "ERROR: process %d (pid %d): can't create thread", my_index, my_pid);
     }
 
     handle_session(i, cli_nfd);
